@@ -1,5 +1,6 @@
 #include "filewritebase.h"
 #include<QFile>
+#include <QVariant>
 
 
 FileWriteBase::FileWriteBase(QString filename)
@@ -19,9 +20,25 @@ bool FileWriteBase::Init()
     return  this->SaveFile(content);
 }
 
-bool FileWriteBase::AddAndSave(const QString key, const QString value)
+bool FileWriteBase::AddStrAndSave(const QString key, const QString value)
 {
     return this->SaveFile(this->Add( key, value));
+}
+
+bool FileWriteBase::AddListAndSave(const QString key, const QStringList values)
+{
+    return this->SaveFile(this->AddList(key,values));
+}
+
+bool FileWriteBase::AddMapAndSave(const QString key, const QMap<QString, QString> values)
+{
+   QMap<QString,QVariant> map;
+   foreach(QString item,values.keys())
+   {
+        map.insert(item,QVariant( values[item]));
+   }
+
+    return this->SaveFile(this->AddMap( key,map));
 }
 
 bool FileWriteBase::DeleteAndSave(QString const key)

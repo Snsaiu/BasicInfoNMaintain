@@ -1,8 +1,10 @@
 #ifndef FILEWRITEBASE_H
 #define FILEWRITEBASE_H
 
+#include <QMap>
 #include <QObject>
 #include "BasicInfoNMaintain_global.h"
+#include <QString>
 
 ///
 /// \brief The FileWriteBase class 文件写入基类
@@ -25,12 +27,29 @@ public:
      bool Init();
 
      ///
-     /// \brief AddAndSave 修改并保存
+     /// \brief AddStrAndSave 修改字符串并保存
      /// \param key
      /// \param value
      /// \return  写入成功返回true 否则返回false
      ///
-     bool AddAndSave(const QString key,const QString value);
+     bool AddStrAndSave(const QString key,const QString value);
+
+     ///
+     /// \brief AddListAndSave 修改或者添加列表并保存
+     /// \param key
+     /// \param values
+     /// \return
+     ///
+     bool AddListAndSave(const QString key,const QStringList values);
+
+
+     ///
+     /// \brief AddMapAndSave 添加获得修改map并保存
+     /// \param key
+     /// \param values
+     /// \return
+     ///
+     bool AddMapAndSave(const QString key,const QMap<QString,QString> values);
 
 
 
@@ -73,6 +92,18 @@ protected:
     /// \return  返回修改后的json
     ///
     virtual QByteArray DeleteKey(const QString key)=0;
+
+    ///
+    /// \brief AddList 添加列表
+    /// \param key
+    /// \param values
+    /// \return
+    ///
+    virtual QByteArray AddList(const QString key,const QStringList values)=0;
+
+
+
+    virtual QByteArray AddMap(const QString key,const QMap<QString,QVariant> values)=0;
 
 
 signals:

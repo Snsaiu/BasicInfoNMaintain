@@ -12,18 +12,22 @@ CONFIG += c++11
 SOURCES += \
     Consts/paramconst.cpp \
     FileLocationSearchImpl/defaultfilelocationsearch.cpp \
+    FileReadImpl/jsonread.cpp \
     FileWriteImpl/jsonwrite.cpp \
     basicinfonmaintain.cpp \
     filelocationsearchbase.cpp \
+    filereadbase.cpp \
     filewritebase.cpp
 
 HEADERS += \
     BasicInfoNMaintain_global.h \
     Consts/paramconst.h \
     FileLocationSearchImpl/defaultfilelocationsearch.h \
+    FileReadImpl/jsonread.h \
     FileWriteImpl/jsonwrite.h \
     basicinfonmaintain.h \
     filelocationsearchbase.h \
+    filereadbase.h \
     filewritebase.h
 
 # Default rules for deployment.
