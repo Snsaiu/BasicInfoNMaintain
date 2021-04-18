@@ -12,7 +12,7 @@ public:
     // FileReadBase interface
 public:
     bool Exist(QString key);
-    QJsonValue Get(QString key);
+    OutType Get(QString key,QJsonValue &output);
 
 private:
     ///

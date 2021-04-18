@@ -7,6 +7,7 @@
 #include <QJsonParseError>
 #include <QJsonValue>
 #include <QVariant>
+#include "filereadbase.h"
 JsonRead::JsonRead(QString filename):FileReadBase(filename)
 {
 
@@ -43,13 +44,13 @@ bool JsonRead::Exist(QString key)
     return false;
 }
 
-QJsonValue JsonRead::Get(QString key)
+FileReadBase::OutType JsonRead::Get(QString key,QJsonValue &output)
 {
     QStringList split=key.split(":");
 
     QFile f(this->filename);
     if(f.exists()==false)
-        return QJsonValue();
+        return OutType::none;
     f.open(QIODevice::ReadOnly);
     QByteArray content= f.readAll();
     QJsonParseError jsonError;
@@ -66,11 +67,22 @@ QJsonValue JsonRead::Get(QString key)
 
                if(jsonvalue->isObject())
                {
-                  return   jsonvalue->toObject().value(split.last());
+                  output=  jsonvalue->toObject().value(split.last());
+                 if(output.isString())
+                    return OutType::string;
+
+                 else if(output.isArray())
+                    return OutType::arrary;
+                 else
+                    return OutType::object;
+
+
+                  return OutType::object;
                }
                else if(jsonvalue->isArray())
                {
-                   return jsonvalue->toArray();
+                   output= jsonvalue->toArray();
+                   return OutType::arrary;
                }
            }
 
@@ -82,7 +94,7 @@ QJsonValue JsonRead::Get(QString key)
 
     }
 
-    return QJsonValue();
+    return OutType::none;
 }
 
 

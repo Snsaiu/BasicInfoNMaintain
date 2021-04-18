@@ -9,10 +9,17 @@ class FileReadBase : public QObject
 public:
      FileReadBase(QString filename);
 
+     enum OutType{
+         arrary,
+         object,
+         string,
+         none,
+     };
 
      virtual bool Exist(QString key)=0;
 
-     virtual QJsonValue Get(QString key)=0;
+     virtual OutType Get(QString key,QJsonValue &output)=0;
+
 
 
 protected:
