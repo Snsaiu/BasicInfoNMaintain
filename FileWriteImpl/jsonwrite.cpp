@@ -108,12 +108,8 @@ QByteArray JsonWrite::InitilizeFile()
 
     QJsonDocument *json_document=new QJsonDocument();
 
-    QVariantMap map;
-    map.insert("a","b");
 
-    QJsonObject object=QJsonObject::fromVariantMap(map);
-    json_document->setObject(object);
-    QByteArray res=  json_document->toJson();
+    QByteArray res;
 
     delete json_document;
     return res;
