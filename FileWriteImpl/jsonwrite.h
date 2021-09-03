@@ -1,9 +1,12 @@
-#ifndef JSONWRITE_H
+﻿#ifndef JSONWRITE_H
 #define JSONWRITE_H
 
 #include <filewritebase.h>
 #include<QJsonDocument>
 #include "BasicInfoNMaintain_global.h"
+#include<QString>
+#include<QByteArray>
+#include<QStringList>
 
 class BASICINFONMAINTAIN_EXPORT JsonWrite : public FileWriteBase
 {

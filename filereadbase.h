@@ -1,11 +1,11 @@
-#ifndef FILEREADBASE_H
+﻿#ifndef FILEREADBASE_H
 #define FILEREADBASE_H
 
 #include <QObject>
-
-class FileReadBase : public QObject
+#include "BasicInfoNMaintain_global.h"
+class BASICINFONMAINTAIN_EXPORT FileReadBase
 {
-    Q_OBJECT
+
 public:
      FileReadBase(QString filename);
 

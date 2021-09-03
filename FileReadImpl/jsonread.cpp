@@ -1,4 +1,4 @@
-#include "jsonread.h"
+﻿#include "jsonread.h"
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -43,6 +43,7 @@ bool JsonRead::Exist(QString key)
 
     return false;
 }
+
 
 FileReadBase::OutType JsonRead::Get(QString key,QJsonValue &output)
 {

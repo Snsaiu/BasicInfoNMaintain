@@ -1,6 +1,8 @@
-#ifndef JSONREAD_H
+﻿#ifndef JSONREAD_H
 #define JSONREAD_H
 
+#include <QJsonValue>
+#include <QString>
 #include <filereadbase.h>
 #include "BasicInfoNMaintain_global.h"
 

@@ -1,4 +1,4 @@
-#ifndef FILEWRITEBASE_H
+﻿#ifndef FILEWRITEBASE_H
 #define FILEWRITEBASE_H
 
 #include <QMap>
@@ -9,9 +9,9 @@
 ///
 /// \brief The FileWriteBase class 文件写入基类
 ///
-class BASICINFONMAINTAIN_EXPORT FileWriteBase : public QObject
+class BASICINFONMAINTAIN_EXPORT FileWriteBase
 {
-    Q_OBJECT
+
 public:
     ///
     /// \brief FileWriteBase 如果文件不存在，自动创建文件

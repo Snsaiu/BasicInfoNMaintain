@@ -1,13 +1,13 @@
-#ifndef FILELOCATIONSEARCHBASE_H
+﻿#ifndef FILELOCATIONSEARCHBASE_H
 #define FILELOCATIONSEARCHBASE_H
 
 #include <QObject>
 
-
+#include<BasicInfoNMaintain_global.h>
 ///
 /// \brief The FileLocationSearchBase class 查找带有基本信息文件的基类
 ///
-class FileLocationSearchBase : public QObject
+class BASICINFONMAINTAIN_EXPORT FileLocationSearchBase : public QObject
 {
     Q_OBJECT
 public:

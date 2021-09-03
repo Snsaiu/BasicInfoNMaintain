@@ -1,4 +1,4 @@
-#include "jsonwrite.h"
+﻿#include "jsonwrite.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -25,6 +25,7 @@ QByteArray JsonWrite::Add(const QString key,const QString value)
 
     if(ok)
     {
+
 
         document.setObject(oj.toObject());
 
